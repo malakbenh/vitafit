@@ -2,49 +2,49 @@ import 'package:vitafit/custom_widgets/ProductCard.dart';
 
 class Banners {
   static List<String> banners = [
-    "asset/images/home/Frame 7.png",
-    "asset/images/home/banner1.png",
-    "asset/images/home/banner2.png"
+    "assets/images/home/Frame 7.png",
+    "assets/images/home/banner1.png",
+    "assets/images/home/banner2.png"
   ];
 
   static List<ProductCard> salesDiscount = [
     const ProductCard(
-      imagePath: "asset/images/SALES DISCOUNT/pngwing 8 (1).png",
+      imagePath: "assets/images/SALES DISCOUNT/pngwing 8 (1).png",
       title: "Peanut Butter",
       price: "250DA",
       originalPrice: "300DA",
       rating: 4.5,
     ),
     const ProductCard(
-      imagePath: "asset/images/SALES DISCOUNT/pngwing 8 (6).png",
+      imagePath: "assets/images/SALES DISCOUNT/pngwing 8 (6).png",
       title: "Protein",
       price: "250DA",
       originalPrice: "300DA",
       rating: 4.5,
     ),
     const ProductCard(
-      imagePath: "asset/images/healthy product/pngwing 9.png",
+      imagePath: "assets/images/healthy product/pngwing 9.png",
       title: "Brownie",
       price: "250DA",
       originalPrice: "300DA",
       rating: 4.5,
     ),
     const ProductCard(
-      imagePath: "asset/images/healthy product/pngwing 8 (4).png",
+      imagePath: "assets/images/healthy product/pngwing 8 (4).png",
       title: "Juice Orange",
       price: "250DA",
       originalPrice: "300DA",
       rating: 4.5,
     ),
     const ProductCard(
-      imagePath: "asset/images/healthy product/pngwing 8 (2).png",
+      imagePath: "assets/images/healthy product/pngwing 8 (2).png",
       title: "Cereals",
       price: "250DA",
       originalPrice: "300DA",
       rating: 4.5,
     ),
     const ProductCard(
-      imagePath: "asset/images/healthy product/pngwing 8 (3).png",
+      imagePath: "assets/images/healthy product/pngwing 8 (3).png",
       title: "Protein Milk",
       price: "250DA",
       originalPrice: "300DA",
@@ -53,37 +53,37 @@ class Banners {
   ];
   static List<ProductCard> healthyProduct = [
     const ProductCard(
-      imagePath: "asset/images/healthy product/pngwing 8 (1).png",
+      imagePath: "assets/images/healthy product/pngwing 8 (1).png",
       title: "Peanut Butter",
       price: "250.00DA",
       rating: 4.5,
     ),
     const ProductCard(
-      imagePath: "asset/images/healthy product/pngwing 8 (2).png",
+      imagePath: "assets/images/healthy product/pngwing 8 (2).png",
       title: "Cereals",
       price: "450.00DA",
       rating: 4.5,
     ),
     const ProductCard(
-      imagePath: "asset/images/healthy product/pngwing 8 (3).png",
+      imagePath: "assets/images/healthy product/pngwing 8 (3).png",
       title: "Protein Milk",
       price: "650.00DA",
       rating: 4.5,
     ),
     const ProductCard(
-      imagePath: "asset/images/healthy product/pngwing 8 (4).png",
+      imagePath: "assets/images/healthy product/pngwing 8 (4).png",
       title: "Orange Juice",
       price: "950.00DA",
       rating: 4.5,
     ),
     const ProductCard(
-      imagePath: "asset/images/healthy product/pngwing 9.png",
+      imagePath: "assets/images/healthy product/pngwing 9.png",
       title: "Brownie",
       price: "150.00DA",
       rating: 4.5,
     ),
     const ProductCard(
-      imagePath: "asset/images/healthy product/pngwing 10.png",
+      imagePath: "assets/images/healthy product/pngwing 10.png",
       title: "Protein ",
       price: "250.00DA",
       rating: 4.5,
@@ -91,37 +91,37 @@ class Banners {
   ];
  static List<ProductCard> sportAll = [
     const ProductCard(
-      imagePath: "asset/images/all/pngwing 8.png",
+      imagePath: "assets/images/all/pngwing 8.png",
       title: "Razor Air-Hyper-Brisk",
       price: "1300.00DA",
       rating: 4.5,
     ),
     const ProductCard(
-      imagePath: "asset/images/all/pngwing 10.png",
+      imagePath: "assets/images/all/pngwing 10.png",
       title: "Short",
       price: "2000.00DA",
       rating: 4.5,
     ),
     const ProductCard(
-      imagePath: "asset/images/all/pngwing 11.png",
+      imagePath: "assets/images/all/pngwing 11.png",
       title: "T-Shirt",
       price: "2000.00DA",
       rating: 4.5,
     ),
     const ProductCard(
-      imagePath: "asset/images/all/pngwing 12.png",
+      imagePath: "assets/images/all/pngwing 12.png",
       title: "Brassiere",
       price: "1000.00DA",
       rating: 4.5,
     ),
     const ProductCard(
-      imagePath: "asset/images/all/pngwing 7.png",
+      imagePath: "assets/images/all/pngwing 7.png",
       title: "Suite",
       price: "1000.00DA",
       rating: 4.5,
     ),
     const ProductCard(
-      imagePath: "asset/images/all/pngwing 9.png",
+      imagePath: "assets/images/all/pngwing 9.png",
       title: "Pants",
       price: "1000.00DA",
       rating: 4.5,
