@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'sign_in.dart';
+import 'coachSignUp.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -14,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(
       Duration(seconds: 3),
       () => Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (_) => const SignIn())),
+          .pushReplacement(MaterialPageRoute(builder: (_) => TwoFormScreens())),
     );
   }
 
