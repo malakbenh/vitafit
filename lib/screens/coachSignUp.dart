@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:vitafit/custom_widgets/CustomTextFormField.dart';
 import 'package:vitafit/custom_widgets/custom_button.dart';
 import 'package:vitafit/custom_widgets/DropdownButtonFormField.dart';
@@ -8,6 +7,8 @@ import 'dart:io';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:file_picker/file_picker.dart';
+
+import 'package:vitafit/custom_widgets/dots.dart';
 
 class TwoFormScreens extends StatefulWidget {
   @override
@@ -56,24 +57,31 @@ class _TwoFormScreensState extends State<TwoFormScreens> {
       );
       return;
     }
-    if (_formKey1.currentState!.validate() &&
-        _formKey2.currentState!.validate()) {
-      _formKey1.currentState!.save();
+    void validateAndSaveForm1() {
+      if (_formKey1.currentState!.validate()) {
+        _formKey1.currentState!.save();
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Form 1 submitted successfully')),
+        );
+      } else {
+        // Show an error message if form validation failed
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Form 1 validation failed')),
+        );
+      }
+    }
+
+    if (_formKey2.currentState!.validate()) {
       _formKey2.currentState!.save();
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Form submitted successfully')),
+        SnackBar(content: Text('Form 2 submitted successfully')),
       );
     } else {
       // Show an error message if form validation failed
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Form validation failed')),
-      );
-
-      _pageController.animateToPage(
-        0,
-        duration: Duration(milliseconds: 400),
-        curve: Curves.easeIn,
+        SnackBar(content: Text('Form 2 validation failed')),
       );
     }
   }
@@ -308,6 +316,7 @@ class _TwoFormScreensState extends State<TwoFormScreens> {
                                 _price = value!;
                               },
                             ),
+                            SizedBox(height: 10),
                             CustomTextFormField(
                               hintText: 'Your availability',
                               prefixIcon: Icons.calendar_today,
@@ -327,15 +336,20 @@ class _TwoFormScreensState extends State<TwoFormScreens> {
                             ),
                             SizedBox(height: 10),
                             Container(
-                              width: 400,
                               height: 150,
-                              color: Color(0xFFF8F8F8),
+                              width: 400,
+                              padding: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                color: Color(0xFFF8F8F8),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
                               child: CustomTextFormField(
                                 hintText: 'Describe yourself',
                                 prefixIcon: Icons.description,
                                 errorBorderSize: 1.0,
+                                maxLines: 6,
                                 validator: (value) {
-                                  if (value!.isEmpty) {
+                                  if (value == null || value.isEmpty) {
                                     return 'Please describe yourself.';
                                   }
                                   return null;
@@ -417,19 +431,24 @@ class _TwoFormScreensState extends State<TwoFormScreens> {
                       title: "Sign Up",
                       backgroundColor: const Color(0xff35a072),
                       onPressed: () {
-                        if (_formKey1.currentState!.validate() &&
+                        if (_formKey1.currentState != null &&
+                                _formKey2.currentState != null &&
+                                _formKey1.currentState!.validate() ||
                             _formKey2.currentState!.validate()) {
-                          _formKey1.currentState!.save();
-                          _formKey2.currentState!.save();
-                          print('Full Name: $_fullName');
-                          print('Phone Number: $_phoneNumber');
-                          print('Email: $_email');
-                          print('Password: $_password');
-                          print('Location: $_selectedLocation');
-                          print('Price: $_price');
-                          print('Availability: $_availability');
-                          print('Description: $_description');
-                          print('File Name: $_fileName');
+                          setState(() {
+                            _formKey1.currentState!.save();
+                            _formKey2.currentState!.save();
+                            print('Full Name: $_fullName');
+                            print('Phone Number: $_phoneNumber');
+                            print('Email: $_email');
+                            print('Password: $_password');
+                            print('Location: $_selectedLocation');
+                            print('Price: $_price');
+                            print('Availability: $_availability');
+                            print('Description: $_description');
+                            print('File Name: $_fileName');
+                            _submitForm();
+                          });
                         }
                       },
                     ),
@@ -441,33 +460,5 @@ class _TwoFormScreensState extends State<TwoFormScreens> {
         ],
       ),
     );
-  }
-}
-
-class Dots extends StatelessWidget {
-  const Dots({
-    Key? key,
-    required this.pageController,
-  }) : super(key: key);
-
-  final PageController pageController;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        alignment: Alignment.center,
-        padding: EdgeInsets.only(bottom: 55.h),
-        child: SmoothPageIndicator(
-          controller: pageController,
-          count: 2,
-          effect: ExpandingDotsEffect(
-              expansionFactor: 4,
-              spacing: 8,
-              radius: 12,
-              dotWidth: 12,
-              dotHeight: 12,
-              dotColor: Color.fromARGB(255, 217, 217, 217),
-              activeDotColor: Color(0xFF35A072)),
-        ));
   }
 }

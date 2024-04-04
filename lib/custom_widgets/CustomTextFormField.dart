@@ -9,17 +9,19 @@ class CustomTextFormField extends StatelessWidget {
   final bool obscureText;
   final InputDecoration decoration;
   final double? errorBorderSize;
+  final int? maxLines;
 
   CustomTextFormField({
-    super.key,
+    Key? key,
     required this.hintText,
     required this.prefixIcon,
     required this.validator,
     required this.onChanged,
     required this.onSaved,
     this.obscureText = false,
+    this.maxLines,
     this.errorBorderSize,
-  }) : decoration = InputDecoration(
+  })  : decoration = InputDecoration(
           hintText: hintText,
           hintStyle: const TextStyle(color: Color.fromARGB(255, 201, 199, 199)),
           prefixIcon: Icon(prefixIcon, color: Colors.grey[400]),
@@ -43,7 +45,8 @@ class CustomTextFormField extends StatelessWidget {
               width: errorBorderSize ?? 1.0,
             ),
           ),
-        );
+        ),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +59,7 @@ class CustomTextFormField extends StatelessWidget {
         onChanged: onChanged,
         onSaved: onSaved,
         obscureText: obscureText,
+        maxLines: maxLines,
       ),
     );
   }
