@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:vitafit/custom_widgets/CustomTextFormField.dart';
-import 'package:vitafit/custom_widgets/custom_button.dart';
-import 'package:vitafit/custom_widgets/DropdownButtonFormField.dart';
+import 'package:vitafit/view/custom_widgets/CustomTextFormField.dart';
+import 'package:vitafit/view/custom_widgets/custom_button.dart';
+import 'package:vitafit/view/custom_widgets/DropdownButtonFormField.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:file_picker/file_picker.dart';
 
-import 'package:vitafit/custom_widgets/dots.dart';
+import 'package:vitafit/view/custom_widgets/dots.dart';
 
 class TwoFormScreens extends StatefulWidget {
   @override
@@ -204,7 +204,7 @@ class _TwoFormScreensState extends State<TwoFormScreens> {
                             CustomTextFormField(
                               hintText: 'Enter your password',
                               prefixIcon: Icons.lock,
-                              obscureText: _obscureText,
+                              obscureText: true,
                               errorBorderSize: 1.0,
                               validator: (value) {
                                 if (value!.isEmpty || value.length < 7) {
@@ -343,23 +343,27 @@ class _TwoFormScreensState extends State<TwoFormScreens> {
                                 color: Color(0xFFF8F8F8),
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              child: CustomTextFormField(
-                                hintText: 'Describe yourself',
-                                prefixIcon: Icons.description,
-                                errorBorderSize: 1.0,
-                                maxLines: 6,
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please describe yourself.';
-                                  }
-                                  return null;
-                                },
-                                onChanged: (value) {
-                                  _description = value;
-                                },
-                                onSaved: (value) {
-                                  _description = value!;
-                                },
+                              child: Center(
+                                child: Container(
+                                  child: CustomTextFormField(
+                                    hintText: 'Describe yourself',
+                                    prefixIcon: Icons.description,
+                                    errorBorderSize: 1.0,
+                                    maxLines: 6,
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Please describe yourself.';
+                                      }
+                                      return null;
+                                    },
+                                    onChanged: (value) {
+                                      _description = value;
+                                    },
+                                    onSaved: (value) {
+                                      _description = value!;
+                                    },
+                                  ),
+                                ),
                               ),
                             ),
                             SizedBox(height: 10),

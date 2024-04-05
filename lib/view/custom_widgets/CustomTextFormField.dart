@@ -19,7 +19,7 @@ class CustomTextFormField extends StatelessWidget {
     required this.onChanged,
     required this.onSaved,
     this.obscureText = false,
-    this.maxLines,
+    this.maxLines = 1,
     this.errorBorderSize,
   })  : decoration = InputDecoration(
           hintText: hintText,
