@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'edit.dart';
 
 class Settings_Screen extends StatefulWidget {
-  const Settings_Screen({super.key});
+  const Settings_Screen({Key? key}) : super(key: key);
 
   @override
   State<Settings_Screen> createState() => _Settings_ScreenState();
@@ -11,17 +11,13 @@ class Settings_Screen extends StatefulWidget {
 
 class _Settings_ScreenState extends State<Settings_Screen> {
   bool isNotificationActive = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Settings '),
         centerTitle: true,
-        leading: InkWell(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: Icon(Icons.arrow_back_ios)),
       ),
       body: SafeArea(
         child: Column(
@@ -48,7 +44,7 @@ class _Settings_ScreenState extends State<Settings_Screen> {
               color: Color(0xffFCFCFC),
               child: Column(
                 children: [
-                  profile_widget(
+                  ProfileWidget(
                       text: 'Edit Profile',
                       image: 'assets/icons/edit.png',
                       onTap: () {
@@ -58,15 +54,15 @@ class _Settings_ScreenState extends State<Settings_Screen> {
                               builder: (context) => Edit_Screen(),
                             ));
                       }),
-                  profile_widget(
+                  ProfileWidget(
                       text: 'Change password',
                       image: 'assets/icons/change.png',
                       onTap: () {}),
-                  profile_widget(
+                  ProfileWidget(
                       text: 'Delete account',
                       image: 'assets/icons/dele.png',
                       onTap: () {}),
-                  profile_widget(
+                  ProfileWidget(
                       text: 'Logout',
                       image: 'assets/icons/log.png',
                       color: Colors.red,
@@ -74,6 +70,8 @@ class _Settings_ScreenState extends State<Settings_Screen> {
                 ],
               ),
             ),
+            // ... rest of your code
+
             SizedBox(
               height: 30,
             ),
@@ -99,14 +97,14 @@ class _Settings_ScreenState extends State<Settings_Screen> {
               color: Color(0xffFCFCFC),
               child: Column(
                 children: [
-                  setting_widget(
+                  SettingWidget(
                       text: 'Active Notification',
-                      if_active: true,
+                      ifActive: true, // Change this line
                       image: 'assets/icons/edit.png',
                       onTap: () {}),
-                  setting_widget(
+                  SettingWidget(
                       text: 'Language',
-                      if_active: false,
+                      ifActive: false, // And this line
                       image: 'assets/icons/lan.png',
                       onTap: () {}),
                 ],
@@ -117,106 +115,157 @@ class _Settings_ScreenState extends State<Settings_Screen> {
       ),
     );
   }
+}
 
-  Widget profile_widget({text, onTap, image, color, pad}) => InkWell(
-        onTap: onTap,
-        child: Container(
-          margin: EdgeInsets.symmetric(
-            horizontal: 30,
-          ),
-          padding: EdgeInsets.all(8),
-          width: double.infinity,
-          height: 60,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
+class ProfileWidget extends StatefulWidget {
+  final String text;
+  final Function? onTap;
+  final String? image;
+  final Color? color;
+  final double? pad;
+  final bool if_active;
+
+  ProfileWidget(
+      {this.text = '',
+      this.onTap,
+      this.image,
+      this.color,
+      this.pad,
+      this.if_active = false});
+
+  @override
+  _ProfileWidgetState createState() => _ProfileWidgetState();
+}
+
+class _ProfileWidgetState extends State<ProfileWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: widget.onTap as void Function()?,
+      child: Container(
+        margin: EdgeInsets.symmetric(
+          horizontal: 30,
+        ),
+        padding: EdgeInsets.all(widget.pad ?? 8),
+        width: double.infinity,
+        height: 60,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                Container(
+                    padding: EdgeInsets.all(widget.pad ?? 8),
+                    decoration: BoxDecoration(shape: BoxShape.circle),
+                    child: Center(
+                        child: widget.image != null
+                            ? Image.asset(
+                                widget.image!,
+                                color: widget.color ?? Colors.black,
+                              )
+                            : Container())),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(widget.text)
+              ],
+            ),
+            Icon(
+              Icons.arrow_forward_ios,
+              color: widget.color ?? Colors.black,
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class SettingWidget extends StatefulWidget {
+  final String text;
+  final bool ifActive;
+  final Function? onTap;
+  final String? image;
+  final Color? color;
+  final double? pad;
+
+  SettingWidget({
+    required this.text,
+    this.ifActive = false,
+    this.onTap,
+    this.image,
+    this.color,
+    this.pad,
+  });
+
+  @override
+  _SettingWidgetState createState() => _SettingWidgetState();
+}
+
+class _SettingWidgetState extends State<SettingWidget> {
+  bool isNotificationActive = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: widget.onTap as void Function()?,
+      child: Container(
+        margin: EdgeInsets.symmetric(
+          horizontal: 30,
+        ),
+        padding: EdgeInsets.all(widget.pad ?? 8),
+        width: double.infinity,
+        height: 60,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                if (!widget.ifActive)
                   Container(
-                      padding: EdgeInsets.all(pad ?? 8),
+                      padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(shape: BoxShape.circle),
                       child: Center(
-                          child: Image.asset(
-                        image,
-                        color: color ?? Colors.black,
-                      ))),
+                          child: widget.image != null
+                              ? Image.asset(
+                                  widget.image!,
+                                  color: widget.color ?? Colors.black,
+                                )
+                              : Container())),
+                if (widget.ifActive)
                   SizedBox(
                     width: 10,
                   ),
-                  Text(text)
-                ],
+                Text(widget.text)
+              ],
+            ),
+            if (widget.ifActive)
+              Switch(
+                value: isNotificationActive,
+                onChanged: (v) {
+                  setState(() {
+                    isNotificationActive = v;
+                  });
+                },
+                activeColor: Colors.white,
+                activeTrackColor: Colors.lightGreenAccent,
               ),
-              Icon(
-                Icons.arrow_forward_ios,
-                color: color ?? Colors.black,
-              )
-            ],
-          ),
-        ),
-      );
-  Widget setting_widget({
-    text,
-    onTap,
-    image,
-    if_active,
-    Color? color,
-  }) =>
-      InkWell(
-        onTap: onTap,
-        child: Container(
-          margin: EdgeInsets.symmetric(
-            horizontal: 30,
-          ),
-          padding: EdgeInsets.all(8),
-          width: double.infinity,
-          height: 60,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
+            if (!widget.ifActive)
               Row(
                 children: [
-                  if (!if_active)
-                    Container(
-                        padding: EdgeInsets.all(8),
-                        decoration: BoxDecoration(shape: BoxShape.circle),
-                        child: Center(
-                            child: Image.asset(
-                          image,
-                          color: Colors.black,
-                        ))),
-                  if (if_active)
-                    SizedBox(
-                      width: 10,
-                    ),
-                  Text(text, style: TextStyle(color: color ?? Colors.black))
+                  Text(
+                    'English',
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                  Icon(
+                    Icons.arrow_drop_down,
+                    color: Colors.grey,
+                  )
                 ],
-              ),
-              if (if_active)
-                Switch(
-                  value: isNotificationActive,
-                  onChanged: (v) {
-                    setState(() {
-                      isNotificationActive = v;
-                    });
-                  },
-                  activeColor: Colors.white,
-                  activeTrackColor: Colors.lightGreenAccent,
-                ),
-              if (!if_active)
-                Row(
-                  children: [
-                    Text(
-                      'English',
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                    Icon(
-                      Icons.arrow_drop_down,
-                      color: Colors.grey,
-                    )
-                  ],
-                )
-            ],
-          ),
+              )
+          ],
         ),
-      );
+      ),
+    );
+  }
 }
