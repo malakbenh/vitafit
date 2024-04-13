@@ -1,0 +1,51 @@
+import 'package:flutter/material.dart';
+
+class PlaceholderDialog extends StatelessWidget {
+  const PlaceholderDialog({
+    this.icon,
+    this.message,
+    this.actions = const [],
+    Key? key,
+  }) : super(key: key);
+
+  final Widget? icon;
+  final String? message;
+  final List<Widget> actions;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: MediaQuery.of(context).size.width * 0.7 ,
+      height: MediaQuery.of(context).size.height * 0.2 ,
+      child: AlertDialog(
+        backgroundColor: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        icon: icon,
+        content: message == null
+            ? null
+            : SizedBox(
+          width:300,
+          child: Text(message! ,style: TextStyle(
+            color: Colors.grey ,
+            fontSize: 15 ,
+
+          ),),
+
+          // child: CustomText(
+          //   text: message!,
+          //   textAlign: TextAlign.center,
+          //   maxLines: 2,
+          //   color: AppColors.greyTextColor,
+          //   fontSize: FontSize.s14,
+          // ),
+        ),
+        // contentTextStyle: AppStyle.textBlack,
+        actionsAlignment: MainAxisAlignment.center,
+        actionsOverflowButtonSpacing: 8.0,
+        actions: actions,
+      ),
+    );
+  }
+}
