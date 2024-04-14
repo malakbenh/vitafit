@@ -147,7 +147,9 @@ class _ConfirmDeleteAccountState extends State<ConfirmDeleteAccount> {
                     Container(
                       width: MediaQuery.of(context).size.width * 0.42,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                         child: Text(
                           'Cancel',
                           style: TextStyle(
