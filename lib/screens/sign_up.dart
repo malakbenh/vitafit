@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:vitafit/custom_widgets/CustomTextFormField.dart';
-import 'package:vitafit/custom_widgets/custom_button.dart';
+import 'package:vitafit/view/custom_widgets/CustomTextFormField.dart';
+import 'package:vitafit/view//custom_widgets/custom_button.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -131,7 +131,7 @@ class _SignUpState extends State<SignUp> {
                       CustomTextFormField(
                         hintText: 'Enter your password',
                         prefixIcon: Icons.lock,
-                        obscureText: _obscureText,
+                        obscureText: true,
                         errorBorderSize: 1.0,
                         validator: (value) {
                           if (value!.isEmpty || value.length < 7) {
