@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'screens/splash_screen.dart';
 
+
 void main() {
-  runApp(const MyApp());
+  runApp(const vitafit());
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -19,3 +22,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
