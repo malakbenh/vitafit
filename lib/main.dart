@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:graduation_djz/ui/profile.dart';
+
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'screens/splash_screen.dart';
@@ -19,6 +21,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
         home: SplashScreen(),
       ),
+
     );
   }
 }
