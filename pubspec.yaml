@@ -1,5 +1,5 @@
-name: vitafit
-description: "A new Flutter project."
+name: vitafit 
+description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
@@ -40,7 +40,8 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.6
+  cupertino_icons: ^1.0.2
+  iconly: ^1.0.1
 
 dev_dependencies:
   flutter_test:
@@ -51,7 +52,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^3.0.0
+  flutter_lints: ^2.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -59,17 +60,13 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
   assets:
-    - assets/eating-disorder/cuate.png
-    - assets/secure-login/pana.png
-    - assets/coaches/pana.png
-    - assets/mobile-payments/pana.png
-    - assets/tablet-login/pana.png
-    - assets/Ellipse 3.png
-    - assets/Ellipse 3-1.png
-    - assets/logo.png
-    - assets/fleu.png
-    - assets/google_logo.png
-    - assets/apple_logo.png
+    - asset/images/
+    - asset/images/coaches/
+    - asset/images/eating-disorder/
+    - asset/images/forgot-password/
+    - asset/images/mobile-payments/
+    - asset/images/secure-login/
+    - asset/images/tablet-login/
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
@@ -89,6 +86,7 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+
 fonts:
   - family: Poppins
     fonts:
@@ -99,6 +97,5 @@ fonts:
   - family: Satisfy
     fonts:
       - asset: assets/fonts/Satisfy-Regular.ttf
-
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
