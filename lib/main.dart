@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:vitafit/screens/auth/select_type.dart';
-import 'package:vitafit/screens/auth/sign_up.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'screens/splash_screen.dart';
 
 void main() {
   runApp(const vitafit());
 }
 
-class vitafit extends StatelessWidget {
-  const vitafit({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: ChoseLogin(),
+    return ScreenUtilInit(
+      designSize: const Size(430, 932),
+      builder: (context, child) => MaterialApp(
+        home: SplashScreen(),
+      ),
     );
   }
 }
