@@ -1,8 +1,9 @@
-name: vitafit
-description: "A new Flutter project."
+name: vitafit 
+description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
 # followed by an optional build number separated by a +.
@@ -18,6 +19,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 environment:
   sdk: ">=3.3.0 <4.0.0"
+
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
 # consider running `flutter pub upgrade --major-versions`. Alternatively,
@@ -32,12 +34,19 @@ dependencies:
   google_fonts: ^4.0.1
   font_awesome_flutter: ^9.2.0
   image_picker: ^0.8.4+4
-  iconly: ^1.0.0
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
   card_swiper: ^3.0.1
-  dev_dependencies:
+
+  flutter_image_compress: ^1.1.0
+  file_picker: ^4.2.0
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  iconly: ^1.0.1
+
+dev_dependencies:
   flutter_test:
     sdk: flutter
   # The "flutter_lints" package below contains a set of recommended lints to
@@ -45,38 +54,45 @@ dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
+
   flutter_lints: ^3.0.0
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
 flutter:
+
   assets:
     - assets/images/
     - assets/
-    - assets/images/coaches/
-    - assets/images/eating-disorder/
-    - assets/images/forgot-password/
-    - assets/images/mobile-payments/
-    - assets/images/secure-login/
-    - assets/images/tablet-login/
-    - assets/images/home/
-    - assets/images/all/
-    - assets/images/brassiere/
-    - assets/images/buttom/
-    - assets/images/eating-disorder/
-    - assets/images/healthy product/
-    - assets/images/shoes/
-    - assets/images/suite/
-    - assets/images/top/
-    - assets/images/sport materials/
-    - assets/images/SALES DISCOUNT/
+    - assets/coaches/
+    - assets/eating-disorder/
+    - assets/forgot-password/
+    - assets/mobile-payments/
+    - assets/secure-login/
+    - assets/tablet-login/
+    - assets/home/
+    - assets/all/
+    - assets/brassiere/
+    - assets/buttom/
+    - assets/eating-disorder/
+    - assets/healthy product/
+    - assets/shoes/
+    - assets/suite/
+    - assets/top/
+    - assets/sport materials/
+    - assets/SALES DISCOUNT/
     
+
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
+
+ 
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -89,14 +105,14 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-fonts:
+
+ fonts:
   - family: Poppins
     fonts:
       - asset: fonts/Poppins/Poppins-Regular.ttf
       - asset: fonts/Poppins/Poppins-Bold.ttf
       - asset: fonts/Poppins/Poppins-Italic.ttf
       - asset: fonts/Poppins/Poppins-BoldItalic.ttf
-
   - family: Satisfy
     fonts:
       - asset: assets/fonts/Satisfy-Regular.ttf
