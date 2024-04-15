@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'screens/splash_screen.dart';
 
 void main() {
-  runApp(const vitafit());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
