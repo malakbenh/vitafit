@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
-import 'package:vitafit/screens/pages/favorite.dart';
-import 'package:vitafit/screens/pages/home_screen.dart';
-import 'package:vitafit/screens/pages/orders.dart';
-import 'package:vitafit/screens/pages/program.dart';
+import 'package:vitafit/view/screens/store/healthy_product/favorite.dart';
+import 'package:vitafit/view/screens/store/healthy_product/home_screen.dart';
+import 'package:vitafit/view/screens/store/healthy_product/orders.dart';
+import 'package:vitafit/view/screens/store/healthy_product/program.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
