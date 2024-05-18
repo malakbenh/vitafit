@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vitafit/view/const/app_const.dart';
+import 'package:vitafit/const/app_const.dart';
 
 class HealthyProduct extends StatelessWidget {
   const HealthyProduct({super.key});
